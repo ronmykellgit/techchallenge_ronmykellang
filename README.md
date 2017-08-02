@@ -6,7 +6,7 @@ How to run the project
 In the solution, be sure to set Evaluation.Web as startup project.
 
 ----------------------
-How to run the test
+How to run the tests
 ----------------------
 
 Just show your test explorer and run all tests.
@@ -31,9 +31,9 @@ Design
 -------------------------
 A tabular form showing customer and their bets including if they are winning or not.
 Some row highlights and specific column highlights are done to emphasize winning customers 
-and its corresponding high return stake.
+and if it is a high return stake (>= 200).
 
-The table can be sorted. (I just added this feature though not requirements
+The table is **sortable**.  (I just voluntarily added this feature)
 
 -------------------------
 Technology/Language used 
