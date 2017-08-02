@@ -1,0 +1,44 @@
+﻿
+<div class="container">
+    <div class="row">
+        <h1>Bets</h1>
+        <div>
+            <section ng-app="betApp" ng-controller="betController">
+                <table id="customer-bet" class="table table-striped table-bordered">
+                    <thead>
+                        <tr>
+                            <th ng-click="sort('customerName')" class="col-3">
+                                Customer Name
+                                <i class="fa" ng-if="pageInfo.sortBy == 'customerName'" 
+                                   ng-class = "pageInfo.isSortAscending ? 'fa-caret-up': 'fa-caret-down'"></i>
+                            </th>
+                            <th ng-click="sort('raceNumber')" class="col-3">
+                                Race Number
+                                <i class="fa" ng-if="pageInfo.sortBy == 'raceNumber'"
+                                   ng-class="pageInfo.isSortAscending ? 'fa-caret-up': 'fa-caret-down'"></i>
+                            </th>
+                            <th ng-click="sort('returnStake')" class="col-3">
+                                Potential Winning
+                                <i class="fa" ng-if="pageInfo.sortBy == 'returnStake'"
+                                   ng-class="pageInfo.isSortAscending ? 'fa-caret-up': 'fa-caret-down'"></i>
+                            </th>
+                            <th ng-click="sort('won')" class="col-3">
+                                Win Status  
+                                <i class="fa" ng-if="pageInfo.sortBy == 'won'"
+                                   ng-class="pageInfo.isSortAscending ? 'fa-caret-up': 'fa-caret-down'"></i>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="bet in bets" ng-class="{'winning-bet' : bet.won}">
+                            <td>{{bet.customerName}}</td>
+                            <td>{{bet.raceNumber}}</td>
+                            <td ng-class="{'win-stake' : bet.won && bet.returnStake >= '200'}">{{bet.returnStake}}</td>
+                            <td>{{bet.won}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </div>
+    </div>
+</div>
