@@ -5,6 +5,7 @@ using Evaluation.Web.ViewModel;
 using Evaluation.Web.Extensions;
 using System.Linq;
 using System.Web.Http;
+using System.Net.Http;
 
 namespace Evaluation.Web.Controllers
 {
@@ -14,7 +15,7 @@ namespace Evaluation.Web.Controllers
         [HttpGet]
         public PagedResult<CustomerBetVM> CustomerBets(BetTableSortBy sortBy, bool isAscending)
         {
-            var service = new CustomerBetService();
+            var service = new CustomerBetService(new HttpClient());
             var customers = service.GetCustomers();
             var bets = service.GetBets();
 
